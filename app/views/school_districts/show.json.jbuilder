@@ -1,0 +1,1 @@
+json.partial! "school_districts/school_district", school_district: @school_district

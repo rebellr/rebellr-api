@@ -1,0 +1,1 @@
+json.array! @school_districts, partial: 'school_districts/school_district', as: :school_district
