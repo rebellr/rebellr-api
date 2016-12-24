@@ -12,7 +12,7 @@ class SchoolsController < ApplicationController
   def show
   end
 
-  # GET /schools/bvsd.org.json
+  # GET /schools/domains/bvsd.org.json
   def show_domain
     domain = params[:domain]
     puts domain
