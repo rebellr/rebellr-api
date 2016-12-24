@@ -15,14 +15,15 @@ class SchoolsController < ApplicationController
   # GET /schools/domains/bvsd.org.json
   def show_domain
     domain = params[:domain]
-    puts domain
     @schools = []
     SchoolDistrict.where(domain: domain).each do |district|
       district.schools.each do |school|
+        school.district_name = district.name
+        puts school.district_name
         @schools << school
       end
     end
-    render json: @schools
+    render json: @schools, include: {school_district: {only: :name}}
   end
 
   # POST /schools
