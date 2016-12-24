@@ -12,6 +12,21 @@ class SchoolsController < ApplicationController
   def show
   end
 
+  # GET /schools/bvsd.org.json
+  def show_domain
+    domain = params[:domain]
+    puts domain
+    @schools = []
+    SchoolDistrict.all.each do |district|
+      if district.domain == domain
+        district.schools.each do |school|
+          @schools << school
+        end
+      end
+    end
+    render json: @schools
+  end
+
   # POST /schools
   # POST /schools.json
   def create
