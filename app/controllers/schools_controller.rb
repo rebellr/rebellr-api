@@ -17,11 +17,9 @@ class SchoolsController < ApplicationController
     domain = params[:domain]
     puts domain
     @schools = []
-    SchoolDistrict.all.each do |district|
-      if district.domain == domain
-        district.schools.each do |school|
-          @schools << school
-        end
+    SchoolDistrict.where(domain: domain).each do |district|
+      district.schools.each do |school|
+        @schools << school
       end
     end
     render json: @schools
