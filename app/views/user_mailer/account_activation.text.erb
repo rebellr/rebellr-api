@@ -1,0 +1,10 @@
+Greetings <%= @user.first_name %>,
+
+Welcome to rebellr. Click on the link below to activate your account:
+
+<%= Rails.configuration.web_host + "/account_activations/#{@user.activation_token}/edit?email=#{CGI.escape(@user.email)}" %>
+
+We hope you have a fun time at rebellr.
+
+Sincerely,
+The Rebellr Team
