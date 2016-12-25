@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225045827) do
+ActiveRecord::Schema.define(version: 20161225194327) do
 
   create_table "school_districts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20161225045827) do
 
   create_table "sessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.string   "auth_token"
+    t.string   "authentication_digest"
     t.datetime "expiry_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.index ["user_id"], name: "index_sessions_on_user_id", using: :btree
   end
 
