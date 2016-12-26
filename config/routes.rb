@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :schools
   resources :school_districts
 
+  post '/account_activations', to: 'account_activations#activate'
+
   get '/status', to: 'sessions#status'
   delete '/sessions', to: 'sessions#destroy'
 

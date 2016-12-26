@@ -6,6 +6,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
+      unless user.activated?
+        render_unauthorized('Account is not activated. Please check email for activation email.')
+      end
       @session = user.sessions.build
       @session.save!
     else
