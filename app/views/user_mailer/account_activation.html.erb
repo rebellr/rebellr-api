@@ -6,7 +6,7 @@
   Welcome to rebellr. Please click on the link below to activate your account:
 </p>
 
-<%= link_to 'Activate', Rails.configuration.web_host + "/account_activations/#{@user.activation_token}/edit", email: @user.email %>
+<%= link_to 'Activate', Rails.configuration.web_host + "/account_activations/#{@user.activation_token}/edit?email=#{CGI.escape(@user.email)}" %>
 
 <p>
 We hope you have a fun time at rebellr.
