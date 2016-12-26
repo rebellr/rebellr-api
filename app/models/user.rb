@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :activation_token
+  before_create :create_activation_digest
   belongs_to :school
   has_many :sessions
   has_secure_password
