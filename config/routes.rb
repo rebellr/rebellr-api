@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :sessions, except: [:index, :update, :show, :destroy]
+  resources :sessions, except: [:index, :update, :destroy]
   resources :users
   resources :schools
   resources :school_districts

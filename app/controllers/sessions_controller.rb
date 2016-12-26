@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show]
 
+  def show
+  end
+
   # POST /sessions
   # POST /sessions.json
   def create
@@ -11,6 +14,7 @@ class SessionsController < ApplicationController
       end
       @session = user.sessions.build
       @session.save!
+      render @session
     else
       render_unauthorized('Invalid username/password')
     end

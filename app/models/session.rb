@@ -8,7 +8,7 @@ class Session < ApplicationRecord
   def generate_auth_token
     begin
       self.auth_token = SecureRandom.hex
-    end while self.class.exists(auth_token: auth_token)
+    end while self.class.exists?(auth_token: auth_token)
   end
 
   def set_expiry_date
