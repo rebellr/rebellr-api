@@ -11,4 +11,12 @@ class ApplicationController < ActionController::API
     render json: {error: reason}, status: :unauthorized
   end
 
+  def user_security
+    authenticate_with_http_token do |token, options|
+      user = Session.find_by(auth_token: token)
+      if user.nil?
+        render_unauthorized('Must be logged in to access this resource.')
+      end
+    end
+  end
 end
